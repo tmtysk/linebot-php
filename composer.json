@@ -1,0 +1,13 @@
+{
+  "name": "cu/linebot",
+  "require": {
+    "guzzlehttp/guzzle": "6.2.0",
+    "monolog/monolog": "1.18.2"
+  },
+  "license": "MIT",
+  "autoload": {
+    "psr-0": {
+      "CU": "lib/"
+    }
+  }
+}
