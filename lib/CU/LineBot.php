@@ -53,7 +53,12 @@ class LineBot
             'X-Line-Trusted-User-With-ACL' => $this->channel_mid,
         ];
 
-        $this->api = new HttpClient(['base_uri' => $endpoint, 'headers' => $headers, 'proxy' => ['https' => getenv('FIXIE_URL')]]);
+        $this->api = new HttpClient(['base_uri' => $endpoint, 'headers' => $headers]);
+
+        // for heroku. set addon 'fixie:tricycle'
+        if (getenv('FIXIE_URL')) {
+            $this->api = new HttpClient(['base_uri' => $endpoint, 'headers' => $headers, 'proxy' => ['https' => getenv('FIXIE_URL')]]);
+        }
     }
 
     public function isValid($signature, $request_body)
